@@ -1,0 +1,71 @@
+/* Seletor universal: aplica as regras a todos os elementos da página sem exceção */
+* {
+    margin: 0;            /* Remove as margens padrão que os navegadores adicionam (como no body e h1) */
+    padding: 0;           /* Remove preenchimentos padrão, garantindo que você tenha controle total do espaço */
+    box-sizing: border-box; /* Altera o cálculo de tamanho: largura e altura agora incluem padding e borda */
+}
+
+/* Pseudo-classe que armazena variáveis globais (Custom Properties) */
+/* Facilita a manutenção: se quiser mudar o azul do site, muda apenas aqui */
+:root {
+    --primary-color: #00d4ff; 
+    --secondary-color: #005f73; 
+    --background-color: #020617; 
+    --text-color: #f8fafc;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* Aplica comportamento ao elemento raiz do documento */
+html {
+    scroll-behavior: smooth; /* Faz com que o clique em links internos (âncoras) deslize suavemente em vez de pular */
+}
+
+/* Estilização base do corpo do documento (o que o usuário vê) */
+body {
+    background-color: var(--background-color); /* Cor de fundo reserva caso a imagem não carregue */
+    color: var(--text-color);                 /* Define a cor padrão para todos os textos do site */
+    font-family: var(--font-family);          /* Aplica a fonte 'Inter' definida nas variáveis */
+    line-height: 1.6;                         /* Define o espaçamento entre linhas para melhorar a leitura */
+    font-size: 18px;                          /* Define o tamanho base da fonte para o corpo do texto */
+    background-image: url('./capa3.jpg');      /* Define a imagem principal que fica ao fundo do site */
+    background-size: cover;                   /* Estica/ajusta a imagem para cobrir toda a tela sem sobrar espaços brancos */
+    background-position: center;               /* Garante que o centro da imagem seja o foco, independente do tamanho da tela */
+    background-color: transparent;            /* Remove cores sólidas que possam cobrir a imagem de fundo */
+    overflow-x: hidden;                       /* Esconde a barra de rolagem horizontal, evitando que o site "dance" para os lados */
+}
+
+/* Aplica uma animação de entrada assim que a página é carregada */
+body {
+    animation: fadeIn 0.8s ease-in-out;       /* Executa a animação 'fadeIn' em 0.8 segundos com aceleração suave */
+}
+
+/* Definição da lógica da animação de surgimento */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;                           /* Começa totalmente invisível */
+        transform: translateY(10px);          /* Começa 10 pixels abaixo da posição original */
+    }
+    to { 
+        opacity: 1;                           /* Termina totalmente visível */
+        transform: translateY(0);             /* Termina na posição correta, criando um efeito de "subida" */
+    }
+}
+
+/* Ajuste para telas pequenas (Celulares) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Menu vira uma lista vertical */
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        width: 95%; /* Garante margem nas laterais */
+        padding: 15px;
+        margin: 10px auto;
+    }
+}

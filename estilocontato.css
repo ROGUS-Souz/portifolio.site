@@ -1,0 +1,153 @@
+/* Layout Principal da seção de contato */
+.layout-final {
+    display: flex;             /* Usa Flexbox para garantir o alinhamento central da seção */
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;        /* Espaço superior para não ficar colado no menu de navegação */
+    position: relative;        /* Necessário para que a .aura-bg (absoluta) fique presa dentro desta seção */
+    overflow: hidden;          /* Corta qualquer brilho ou elemento que tente vazar para fora da tela */
+}
+
+/* Container que divide a tela entre texto e formulário */
+.container-contato {
+    display: grid;             /* Ativa o CSS Grid, ideal para layouts de duas colunas */
+    grid-template-columns: 1fr 1fr; /* Divide o espaço em duas colunas de tamanhos iguais (frações) */
+    gap: 80px;                 /* Espaçamento generoso entre o texto e o formulário */
+    max-width: 1200px;         /* Limita a largura em telas grandes */
+    width: 90%;                /* Garante uma margem de segurança em telas médias */
+    z-index: 10;               /* Garante que o conteúdo fique acima da aura de fundo */
+    flex-wrap: wrap;           /* Permite que as colunas se empilhem em telas menores */
+    justify-content: center;   /* Centraliza o conteúdo horizontalmente quando as colunas empilham */
+}
+
+/* Aura de Fundo: Cria um efeito de iluminação suave no fundo da página */
+.aura-bg {
+    position: absolute;        /* Retira o elemento do fluxo comum para flutuar ao fundo */
+    top: 20%;                  /* Posicionamento vertical */
+    left: 10%;                 /* Posicionamento horizontal */
+    width: 500px;
+    height: 500px;
+    /* Cria um degradê circular que vai da cor primária até o transparente */
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    filter: blur(100px);       /* Desfoca o círculo para parecer uma luz neon difusa */
+    opacity: 0.15;             /* Deixa o efeito bem sutil para não atrapalhar a leitura */
+    z-index: 1;                /* Fica atrás de tudo */
+}
+
+/* Lado do Texto (Título Chamativo) */
+.cta-agressivo {
+    font-size: 50px;           /* Tamanho grande para criar impacto visual imediato */
+    line-height: 1.1;          /* Diminui o espaço entre linhas para o título parecer um bloco sólido */
+    margin-bottom: 20px;
+}
+
+/* Classe utilitária para colorir palavras específicas com a cor principal */
+.destaque { color: var(--primary-color); }
+
+/* Subtexto abaixo do título */
+.sub-pitch {
+    font-size: 18px;
+    color: #cbd5e1;            /* Tom de cinza claro para criar hierarquia visual (menos importante que o h1) */
+    margin-bottom: 40px;
+    margin-top: 15px;
+}
+
+/* Container dos ícones de redes sociais */
+.sociais-contato {
+    display: flex;
+    gap: 20px;                 /* Espaço entre os botões sociais */
+}
+
+/* Estilização dos botões de redes sociais (LinkedIn, GitHub, etc) */
+.sociais-contato a {
+    font-size: 45px;
+    color: white;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;   /* Centraliza o ícone dentro do quadrado */
+    background: rgba(255, 255, 255, 0.05); /* Fundo quase transparente */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda muito sutil */
+    border-radius: 12px;       /* Cantos levemente arredondados */
+    transition: 0.4s;          /* Suaviza as mudanças no hover */
+    text-decoration: none;
+}
+
+/* Efeito ao passar o mouse nos ícones sociais */
+.sociais-contato a:hover {
+    border-color: var(--primary-color); /* A borda acende com a cor neon */
+    color: var(--primary-color);        /* O ícone muda de cor */
+    transform: translateY(-5px);        /* Faz o botão flutuar para cima levemente */
+    box-shadow: 0 10px 30px rgba(0, 213, 255, 0.4); /* Adiciona o brilho neon (Glow) */
+}
+
+/* Formulário de Contato com efeito Glassmorphism (vidro) */
+.contato-form {
+    background: rgba(15, 23, 42, 0.6);  /* Fundo escuro semitransparente */
+    backdrop-filter: blur(15px);        /* Desfoca o que estiver atrás do formulário */
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Sombra pesada para dar profundidade */
+    margin-top: 10px;
+    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos no tamanho total do formulário */
+}
+
+/* Espaçamento entre os campos do formulário */
+.input-group { margin-bottom: 20px; }
+
+/* Estilização das caixas de texto (inputs e textarea) */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo escuro para combinar com o tema */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;      /* Garante que use a mesma fonte do restante do site */
+    font-size: 16px;
+    outline: none;             /* Remove a borda padrão azul do navegador ao clicar */
+    transition: 0.3s;
+}
+
+/* Efeito visual quando o usuário clica para digitar no campo */
+input:focus, textarea:focus {
+    border-color: var(--primary-color);    /* A borda acende no foco */
+    background: rgba(255, 255, 255, 0.08); /* Fundo fica levemente mais claro */
+}
+
+/* Botão de envio do formulário */
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);      /* Cor sólida de destaque */
+    color: var(--background-color);        /* Texto escuro para contraste no botão claro */
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;                             /* Espaço entre o texto do botão e um possível ícone */
+}
+
+/* Efeito ao passar o mouse no botão de enviar */
+.btn-enviar:hover {
+    filter: brightness(1.2);               /* Deixa a cor um pouco mais "acesa" */
+    transform: scale(1.02);                /* Aumenta o botão levemente (efeito de clique) */
+}
+
+/* Ajustes de Responsividade para Celulares e Tablets */
+@media (max-width: 900px) {
+    .container-contato { 
+        grid-template-columns: 1fr;        /* Muda de duas colunas para apenas uma */
+        gap: 40px; 
+    }
+    .cta-agressivo { 
+        font-size: 35px;                   /* Diminui o tamanho do título para caber na tela do celular */
+    }
+}

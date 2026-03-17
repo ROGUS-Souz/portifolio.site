@@ -1,0 +1,89 @@
+/* Estilização do título principal da página de portfólio */
+.titulo-pagina {
+    text-align: center;         /* Centraliza o título horizontalmente */
+    font-size: 70px;            /* Define um tamanho de fonte grande e impactante */
+    color: var(--primary-color); /* Usa a cor azul neon definida globalmente */
+    margin-bottom: 8px;         /* Pequeno espaço abaixo do título */
+    letter-spacing: 2px;        /* Aumenta levemente o espaço entre as letras para um visual moderno */
+}
+
+/* Container que organiza a exibição dos cards de projetos */
+.container-projetos {
+    display: grid;              /* Ativa o sistema de Grid Layout */
+    /* Cria 4 colunas de tamanhos iguais (fr = fração do espaço disponível) */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;                  /* Espaçamento uniforme entre cada card de projeto */
+    max-width: 1400px;          /* Limita a largura total em telas muito grandes */
+    margin: 0 auto;             /* Centraliza o container inteiro na tela */
+    padding: 0 20px;            /* Adiciona um respiro nas laterais para não encostar na borda */
+}
+
+/* Estilização individual de cada card de projeto */
+.card-projeto {
+    background-color: rgba(15, 23, 42, 0.8); /* Fundo escuro com 80% de transparência */
+    border: 1px solid var(--secondary-color); /* Borda inicial com a cor secundária */
+    border-radius: 20px;        /* Arredonda os cantos do card */
+    padding: 15px;              /* Espaçamento interno entre a borda e o conteúdo */
+    text-align: center;         /* Centraliza o texto e ícones dentro do card */
+    transition: all 0.4s ease;  /* Define que qualquer mudança (cor, posição) levará 0.4s suavemente */
+    backdrop-filter: blur(5px); /* Cria um leve efeito de desfoque no que estiver atrás do card */
+}
+
+/* ANIMAÇÃO NO HOVER: Efeito aplicado quando o usuário passa o mouse sobre o card */
+.card-projeto:hover {
+    transform: translateY(-15px); /* Faz o card "flutuar" 15 pixels para cima */
+    border-color: var(--primary-color); /* Muda a cor da borda para o azul neon */
+    /* Adiciona um brilho externo (Glow) azul para simular iluminação neon */
+    box-shadow: 0 10px 30px rgba(0, 213, 255, 0.418); 
+}
+
+/* Título interno do projeto */
+.card-projeto h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Container para os ícones das tecnologias usadas (Python, SQL, etc) */
+.stacks {
+    font-size: 35px;            /* Define o tamanho dos ícones */
+    color: var(--primary-color); /* Deixa os ícones com a cor de destaque do site */
+    margin-bottom: 15px;
+    display: flex;              /* Usa flexbox para alinhar os ícones horizontalmente */
+    justify-content: center;    /* Centraliza os ícones no meio do card */
+    gap: 20px;                  /* Espaço entre um ícone e outro */
+}
+
+/* Descrição curta do projeto */
+.card-projeto p {
+    font-size: 17px;
+    line-height: 1.6;           /* Espaçamento entre linhas para facilitar a leitura */
+    margin-bottom: 22px;
+}
+
+/* Botão de ação para ver mais detalhes do projeto */
+.btn-saiba-mais {
+    display: inline-block;      /* Permite configurar margens e preenchimentos corretamente */
+    padding: 10px 25px;
+    background-color: transparent; /* Fundo transparente inicialmente */
+    border: 2px solid var(--primary-color); /* Borda neon sólida */
+    color: var(--primary-color); /* Texto na cor neon */
+    text-decoration: none;      /* Remove o sublinhado de link */
+    border-radius: 50px;        /* Botão com formato de pílula */
+    font-weight: bold;          /* Deixa o texto em negrito */
+    transition: 0.3s;           /* Transição rápida para a troca de cores no hover */
+}
+
+/* Efeito de inversão de cores ao passar o mouse no botão */
+.btn-saiba-mais:hover {
+    background-color: var(--primary-color); /* Preenche o botão com a cor neon */
+    color: var(--background-color);        /* Muda o texto para a cor escura do fundo */
+}
+
+/* Responsividade: Ajustes para telas de celulares e tablets pequenos */
+@media (max-width: 768px) {
+    .container-projetos {
+        /* Muda de 4 colunas para apenas 1, empilhando os projetos verticalmente */
+        grid-template-columns: 1fr;
+    }
+}

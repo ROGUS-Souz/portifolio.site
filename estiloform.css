@@ -1,0 +1,103 @@
+/* Container principal que agrupa toda a seção de formação */
+#formacao-section {
+    min-height: 100vh;      /* Garante que a seção ocupe pelo menos a altura inteira da tela */
+    display: flex;          /* Habilita o Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;     /* Centraliza o conteúdo verticalmente */
+    padding: 80px 1%;        /* Espaçamento superior/inferior de 80px e lateral de 1% */
+}
+
+/* Container flexível que coloca o Card (foto) ao lado do Texto */
+.container-flex {
+    display: flex;          /* Coloca os itens (card e texto) um ao lado do outro */
+    align-items: center;    /* Mantém ambos alinhados pelo meio horizontal */
+    gap: 60px;              /* Cria uma distância de 60px entre o card e o bloco de texto */
+    max-width: 1200px;      /* Limita a largura máxima para o conteúdo não espalhar demais em monitores UltraWide */
+}
+
+/* CAIXA DO PERFIL (Lado Esquerdo - Onde fica sua foto e nome) */
+.card-perfil {
+    background-color: rgba(15, 23, 42, 0.7); /* Cor escura com 70% de opacidade (transparência) */
+    border: 1px solid var(--primary-color);  /* Borda fina com a cor azul neon definida no :root */
+    border-radius: 35px;                     /* Arredonda os cantos da caixa */
+    padding: 50px;                           /* Espaço interno entre a borda e o conteúdo (foto/nome) */
+    width: 350px;                            /* Largura fixa para manter o formato de "cartão" */
+    display: flex;
+    flex-direction: column;                  /* Empilha a foto em cima do nome */
+    align-items: center;                     /* Centraliza a foto e o nome dentro do card */
+    text-align: center;
+    backdrop-filter: blur(10px);             /* Efeito de desfoque no que estiver atrás do card (vidro fosco) */
+}
+
+/* Moldura que segura a foto e a deixa circular */
+.foto-moldura {
+    width: 180px;                            /* Largura da moldura */
+    height: 180px;                           /* Altura igual à largura para formar um quadrado perfeito */
+    border-radius: 50%;                      /* 50% em um quadrado perfeito cria um círculo */
+    border: 2px solid var(--primary-color);  /* Aro azul ao redor da foto */
+    overflow: hidden;                        /* Corta qualquer parte da imagem que sair fora do círculo */
+    margin-bottom: 20px;                     /* Espaço entre a foto e o nome abaixo dela */
+}
+
+/* Garante que a imagem dentro da moldura se comporte bem */
+.foto-moldura img {
+    width: 100%;                             /* Faz a imagem ocupar toda a largura da moldura */
+    height: 100%;                            /* Faz a imagem ocupar toda a altura da moldura */
+    object-fit: cover;                       /* Redimensiona a foto para preencher o círculo sem achatar */
+}
+
+.Rodrigo {
+    font-size: 30px;                         /* Tamanho de destaque para o seu nome no card */
+}
+
+/* TEXTO SOBRE MIM (Lado Direito - Explicação do perfil) */
+.sobre-mim-texto {
+    flex: 1;                                 /* Faz este bloco "esticar" para ocupar todo o espaço que sobrar à direita */
+    color: var(--text-color);
+}
+
+.sobre-mim-texto h3 {
+    font-size: 40px;                         /* Título grande para chamar atenção */
+    margin-bottom: 25px;                     /* Espaço entre o título e o primeiro parágrafo */
+    color: var(--primary-color);             /* Cor azul neon para hierarquia visual */
+}
+
+.sobre-mim-texto p {
+    font-size: 20px;                         /* Tamanho de leitura confortável */
+    line-height: 1.8;                        /* Espaçamento entre linhas para não cansar a vista */
+    margin-bottom: 15px;                     /* Espaço entre um parágrafo e outro */
+}
+
+/* Estilização para as palavras marcadas com a tag <strong> no HTML */
+strong {
+    color: var(--primary-color);             /* Dá destaque azul neon para palavras-chave no meio do texto */
+}
+
+/* MEDIA QUERY: Regras aplicadas apenas em telas menores (celulares e tablets) */
+@media (max-width: 968px) {
+    #formacao-section {
+        padding: 40px 5%;                    /* Reduz o espaço superior e aumenta o lateral para telas pequenas */
+    }
+
+    .container-flex {
+        flex-direction: column;              /* MUITO IMPORTANTE: Empilha o Card em cima do Texto (modo retrato) */
+        text-align: center;                  /* Centraliza o texto que antes estava alinhado à esquerda */
+        gap: 30px;                           /* Diminui o espaço entre os blocos */
+    }
+
+    .card-perfil {
+        width: 100%;                         /* O card passa a ocupar a largura total disponível */
+        max-width: 400px;                    /* Impede que o card fique largo demais em tablets */
+        border-radius: 20px;                 /* Suaviza os cantos para combinar com telas menores */
+        padding: 30px;                       /* Diminui o preenchimento interno para ganhar espaço */
+        margin-top: 40px;                    /* Adiciona um espaço acima do card para separar do título "Sobre Mim" */
+    }
+
+    .sobre-mim-texto {
+        padding: 0 10px;                     /* Adiciona um pequeno respiro lateral no texto */
+    }
+
+    .sobre-mim-texto h3 {
+        font-size: 32px;                     /* Diminui o título para não quebrar muitas linhas no celular */
+    }
+}

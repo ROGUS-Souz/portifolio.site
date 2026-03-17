@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="estilogeral.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilocontato.css">
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="menu-drop">Menu <i class="fa-solid fa-bars" id="menu-icon"></i>
+                <div class='drop'>
+                    <a class='menubtn'href="index.html">Home</a>
+                    <a class='menubtn'href="formacao.html">Formação</a>
+                    <a class='menubtn'href="portifolio.html">Portfólio</a>
+                    <a class='menubtn'href="contato.html">Contato</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="contato-section" class="layout-final">
+        <div class="aura-bg"></div>
+        
+        <div class="container-contato">
+            <div class="contato-info">
+                <h1 class="cta-agressivo">Pronto para transformar seus <span class="destaque">dados em decisões?</span></h1>
+                <p class="sub-pitch">Seja para um projeto freelance, uma vaga ou apenas um café sobre tecnologia, estou à disposição.</p>
+                
+                <div class="sociais-contato">
+                    <a href="https://github.com/ROGUS-Souz" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rodrigo-souza-a647251b8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/5521981986270" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:rodrigoggusmao@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+    
+            <div class="contato-form">
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="nome" required placeholder="Seu Nome">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="empresa" required placeholder="Sua Empresa">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" required placeholder="Seu E-mail">
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" name="telefone" required placeholder="Seu Telefone">
+                    </div>
+                    <div class="input-group">
+                        <textarea name="mensagem" rows="5" required placeholder="Como posso ajudar?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="scriptcontato.js"></script>
+</body>
+</html>

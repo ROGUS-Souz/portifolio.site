@@ -1,0 +1,127 @@
+/* Pseudo-classe que armazena variáveis globais (Custom Properties) */
+/* Centraliza cores e fontes para facilitar mudanças futuras em todo o site de uma vez só */
+:root {
+    --primary-color: #00d4ff; 
+    --secondary-color: #005f73; 
+    --background-color: #020617; 
+    --text-color: #f8fafc;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* Seção de navegação (Menu) */
+nav {
+    background-color: transparent; /* Mantém o fundo invisível para destacar o conteúdo atrás dele */
+    padding: 10px 20px;            /* Cria um respiro interno nas bordas do menu */
+    display: flex;                 /* Habilita o modelo Flexbox para organizar os elementos filhos */
+    justify-content: flex-end;     /* Alinha o conteúdo (o botão Menu) totalmente à direita */
+    align-items: center;           /* Garante que o texto e ícones fiquem centralizados na altura do nav */
+    position: fixed;               /* Trava o menu na tela; ele não some quando o usuário rola a página */
+    top: 0;                        /* Cola o menu no topo exato da janela */
+    right: 0;                      /* Cola o menu na lateral direita */
+    width: 100%;                   /* Faz o nav ocupar toda a largura da tela */
+    z-index: 1000;                 /* Define uma "camada" alta para o menu não ser coberto por outros elementos */
+    transition: background 0.3s ease; /* Cria um efeito suave caso você decida mudar a cor do fundo via JavaScript no scroll */
+}
+
+/* Container principal do menu dropdown */
+.menu-drop {
+    position: relative;    /* Define este item como a "âncora" para o posicionamento absoluto do menu que vai abrir */
+    display: inline-block; /* Faz com que o elemento ocupe apenas a largura do texto "Menu" */
+    cursor: pointer;       /* Transforma o cursor em "mãozinha" para indicar que é um item interativo */
+}
+
+/* O menu de opções que aparece na interação */
+.drop {
+    /* 1. POSICIONAMENTO EM LINHA À ESQUERDA */
+    position: absolute;    /* Permite posicionar o menu em qualquer lugar relativo ao .menu-drop */
+    top: 50%;              /* Alinha o topo do menu ao meio da altura do pai */
+    right: 100%;           /* Faz o menu começar exatamente onde termina o texto "Menu", indo para a esquerda */
+    margin-right: 15px;    /* Empurra o menu um pouco mais para a esquerda para não grudar no ícone */
+    
+    /* 2. FORMATO EM LINHA */
+    display: flex;         /* Transforma a lista de links em um container flexível */
+    flex-direction: row;   /* Força os links a ficarem um ao lado do outro (horizontal) */
+    white-space: nowrap;   /* Impede que o texto quebre para a linha de baixo se o espaço for curto */
+    
+    /* 3. A TRANSIÇÃO SUAVE (O segredo da animação) */
+    opacity: 0;            /* Deixa o menu invisível por padrão */
+    visibility: hidden;    /* Desativa a interação com o menu enquanto ele está invisível */
+    transform: translateY(-50%) translateX(20px); /* Move o menu 20px para a direita para criar o efeito de "surgimento" */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Controla a velocidade e suavidade da animação */
+    
+    /* ESTILIZAÇÃO VISUAL */
+    background-color: transparent; /* Garante que não haja blocos de cores sólidas indesejados ao fundo */
+}
+
+/* 4. O EFEITO AO PASSAR O MOUSE (HOVER) */
+/* Quando o mouse entra em .menu-drop, estas regras são aplicadas ao .drop */
+.menu-drop:hover .drop {
+    opacity: 1;            /* Torna o menu totalmente visível */
+    visibility: visible;   /* Ativa os links para clique */
+    transform: translateY(-50%) translateX(0); /* Move o menu para a posição final, removendo o deslocamento de 20px */
+}
+
+/* Estilização dos links dentro do menu dropdown */
+.drop a {
+    display: inline-block; /* Permite que o link aceite paddings verticais e horizontais adequadamente */
+    padding: 10px 15px;    /* Aumenta a área clicável ao redor do texto do link */
+    color: var(--text-color); /* Aplica a cor definida na variável lá no topo */
+    text-decoration: none; /* Remove o sublinhado padrão de links do navegador */
+}
+
+/* Efeito de destaque ao passar o mouse sobre cada link individual */
+.drop a:hover {
+    background-color: var(--primary-color); /* Aplica a cor de destaque no fundo do link */
+    color: var(--background-color);        /* Inverte a cor do texto para manter a leitura clara (contraste) */
+}
+
+/* Configuração comum para todas as seções principais do site */
+#eu, #formacao-section, #portifolio-section, #contato-section {
+    padding-top: 50px;   /* Evita que o conteúdo da seção fique escondido atrás do menu fixo */
+    min-height: 100vh;   /* Força a seção a ter no mínimo a altura total da tela do usuário */
+    display: flex;       /* Usa flexbox para organizar o conteúdo interno */
+    flex-direction: column; /* Organiza os itens de cima para baixo */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo da seção */
+}
+
+/* Seção específica de introdução (Home) */
+#eu {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around; /* Distribui o espaço igualmente entre o nome e o botão "saiba mais" */
+    align-items: center;     /* Centraliza o conteúdo horizontalmente */
+    height: 100vh;           /* Define a altura como 100% da área visível do navegador */
+    padding: 60px 0 20px 0;  /* Ajusta os espaçamentos superior e inferior */
+    box-sizing: border-box;  /* Garante que o padding não aumente o tamanho total da seção além dos 100vh */
+}
+
+/* Container do título e cargo */
+#objetivo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centraliza os textos */
+    text-align: center;      /* Garante o alinhamento central em textos de múltiplas linhas */
+}
+
+#objetivo h1 {
+    font-size: 80px;         /* Define um tamanho de fonte grande para destaque do nome */
+}
+
+#objetivo h2 {
+    font-size: 20px;         /* Tamanho menor para a descrição do cargo */
+}
+
+/* Estilização do botão de rolagem "Saiba mais" */
+#saiba-mais {
+    margin-top: 52vh;        /* Empurra o botão para a parte inferior da tela */
+    font-size: 15px;
+    text-align: center;
+    animation: bounce 2s infinite; /* Aplica a animação de pulo definida abaixo continuamente */
+}
+
+/* Animação para o Saiba Mais ficar subindo e descendo suavemente (Efeito visual de convite) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} /* Posição original */
+    40% {transform: translateY(-10px);}                 /* Sobe 10 pixels */
+    60% {transform: translateY(-5px);}                  /* Sobe 5 pixels (amortecimento) */
+}
