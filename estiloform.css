@@ -101,3 +101,105 @@ strong {
         font-size: 32px;                     /* Diminui o título para não quebrar muitas linhas no celular */
     }
 }
+
+/* SEÇÃO DE FORMAÇÃO DETALHADA */
+
+.link-detalhes-container {
+    text-align: center;                   /* Centraliza o link "Ver detalhes" */
+    padding-bottom: 50px;                 /* Espaço abaixo do link para separar da seção de detalhes */
+    margin-top: -50px;                    /* Puxa o link um pouco para cima, sobrepondo a borda inferior da seção anterior */
+
+}
+
+#formacao-detalhada {
+    min-height: 100vh;
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container-detalhes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.coluna-formacao {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 4px solid var(--primary-color); /* Destaque lateral */
+}
+
+.titulo-coluna {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-lista {
+    margin-bottom: 20px;
+}
+
+.item-lista h5 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.item-lista p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.item-lista small {
+    color: var(--primary-color);
+}
+
+.lista-cursos {
+    list-style: none;
+}
+
+.lista-cursos li {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.lista-cursos li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* RESPONSIVIDADE PARA A NOVA SEÇÃO */
+@media (max-width: 968px) {
+    .container-detalhes {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+}
+
+/* Animação para o Saiba Mais ficar subindo e descendo suavemente (Efeito visual de convite) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} /* Posição original */
+    40% {transform: translateY(-10px);}                 /* Sobe 10 pixels */
+    60% {transform: translateY(-5px);}                  /* Sobe 5 pixels (amortecimento) */
+}
+
+/* Estilização do botão "Ver detalhes" para saltar */
+.btn-bounce {
+    display: inline-block;        /* Permite aplicar padding e animação corretamente */
+    color: var(--text-color);     /* Cor do texto do link */
+    text-decoration: none;        /* Remove o sublinhado de link */
+    font-size: 1.2rem;            /* Tamanho da fonte */
+    
+    /* Aplica a animação 'bounce' que você já definiu no estilogeral.css  */
+    animation: bounce 2s infinite; 
+}
