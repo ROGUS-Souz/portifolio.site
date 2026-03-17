@@ -125,3 +125,30 @@ nav {
     40% {transform: translateY(-10px);}                 /* Sobe 10 pixels */
     60% {transform: translateY(-5px);}                  /* Sobe 5 pixels (amortecimento) */
 }
+
+/* --- AJUSTE PARA TELAS PEQUENAS (Responsividade) --- */
+@media (max-width: 768px) {
+    /* Ajusta o posicionamento da lista para descer em vez de ir para a esquerda */
+    .drop {
+        top: 100%;           /* Faz a lista começar exatamente abaixo da palavra "Menu" */
+        right: 0;            /* Alinha a borda direita da lista com a borda direita do menu */
+        margin-right: 0;     /* Remove o recuo que jogava o menu para a esquerda no desktop */
+        flex-direction: column; /* FORÇA os itens a ficarem um embaixo do outro (vertical) */
+        
+        /* Ajusta o efeito de surgimento para ser apenas de cima para baixo no mobile */
+        transform: translateY(10px); 
+    }
+
+    /* Ajusta o efeito de hover no mobile para a nova posição */
+    .menu-drop:hover .drop {
+        transform: translateY(0); /* Remove o deslocamento ao aparecer */
+    }
+
+    /* Garante que os links ocupem a largura total da lista para facilitar o clique */
+    .drop a {
+        display: block;
+        text-align: right;   /* Mantém o texto alinhado à direita conforme o design */
+        padding: 15px 20px;  /* Aumenta o espaçamento para facilitar o toque no celular */
+        background-color: transparent; /* Mantém o fundo transparente para não criar blocos de cor indesejados no mobile */
+    }
+}
