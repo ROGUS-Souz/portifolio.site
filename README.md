@@ -40,6 +40,7 @@ O site foi construído de forma modular para facilitar a manutenção:
 - **LinkedIn:** [rodrigog-souza](https://www.linkedin.com/in/rodrigog-souza/)
 - **WhatsApp:** [(21) 98198-6270](https://wa.me/5521981986270)
 - **Email:** rodrigoggusmao@gmail.com
+- **Portfólio:** https://rogus-souz.github.io/portifolio.site/
 
 ---
 *Desenvolvido com foco em Clean Code e Responsividade.*
